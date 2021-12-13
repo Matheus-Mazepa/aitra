@@ -1,5 +1,7 @@
+import Cookies from 'js-cookie';
+
 export default function auth({next, router}) {
-  if (!localStorage.getItem('jwt')) {
+  if (!Cookies.get('authorization')) {
     return router.push({ name: 'Login' });
   }
 

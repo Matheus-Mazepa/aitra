@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const requestLogin = (state, credentials) => {
-  axios.post('login', credentials)
+  return axios.post('api/login', credentials)
     .then(response => {
-      console.log(response);
+      return response;
     });
 }
 

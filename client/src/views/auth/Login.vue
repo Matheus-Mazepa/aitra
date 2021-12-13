@@ -58,7 +58,11 @@ export default {
     }),
 
     submitForm() {
-      this.submitLogin(this.credentials);
+      this.submitLogin(this.credentials).then(response => {
+        if (response.success) {
+          this.$router.push({ name: 'home' });
+        }
+      });
     }
   }
 };

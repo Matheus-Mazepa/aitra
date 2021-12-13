@@ -12,10 +12,10 @@ Vue.prototype.$http = axios;
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = 'http://localhost:8081'
 
-axios.get('/sanctum/csrf-cookie').then(response => {
-  console.log(response);
-});
-Vue.config.productionTip = false
+axios.get('/sanctum/csrf-cookie');
+Vue.config.productionTip = false;
+
+window.router = router;
 
 Vue.use(VueRouter)
 Vue.use(Notifications)

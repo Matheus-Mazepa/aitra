@@ -2,9 +2,9 @@
   <div class="group inline-block">
     <button
       type="button"
-      class="flex text-sm rounded-full focus:outline-none transform transition duration-500 ease-in-out"
+      class="flex text-sm focus:outline-none transform transition duration-500 ease-in-out text-white"
       id="user-menu-button">
-     User
+      {{ username }}
     </button>
     <ul
       class="origin-left absolute right-0 mt-1 w-44 rounded-md shadow-lg py-1 bg-white focus:outline-none divide-y divide-gray-200 transform scale-0 group-hover:scale-100 transition duration-500 ease-in-out">
@@ -19,21 +19,30 @@
       </li>
 
       <li class="rounded-sm text-left w-full">
-        <router-link
-          to="/login"
-          class="items-menu"
-          role="menuitem"
-          id="logout-0">
-          Sair
-        </router-link>
+        <a href="#" class="items-menu router-link-exact-active router-link-active" @click="logout">Sair</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import Cookies from "js-cookie";
+import {mapActions} from "vuex";
+
 export default {
-  name: 'DropdownProfile'
+  name: 'DropdownProfile',
+
+  methods: {
+    ...mapActions({
+      logout: "auth/logout",
+    })
+  },
+
+  computed: {
+    username() {
+      return Cookies.get('user-name');
+    }
+  }
 }
 </script>
 
