@@ -1,14 +1,5 @@
+FROM node:14
 
-# Image
-FROM node:lts-alpine
+WORKDIR /home/node/app
 
-# Set up work directory
-WORKDIR /var/www/client
-
-RUN npm install -g http-server
-
-# Configure host
-ENV HOST 0.0.0.0
-
-# Init command
-CMD ["sh", "-c", "yarn install && yarn dev"]
+EXPOSE 8080

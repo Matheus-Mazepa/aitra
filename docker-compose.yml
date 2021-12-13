@@ -100,12 +100,16 @@ services:
 
   # 'Client' container
   client:
-    build:
-      context: docker/dev/client
-      dockerfile: Dockerfile
+    build: docker/dev/client/.
+    ports:
+      - "3000:8080"
+    working_dir: /home/node/app
     volumes:
-      - ./client:/var/www/client
-    command: 'npm run serve -- --port 80'
+      - ./client:/home/node/app
+      - ./client/node_modules:/home/node/app/node_modules
+    command: bash -c "npm install && npm run serve"
+    environment:
+      API_URL: 'http://localhost:8081/'
 
 ######### Volumes ###################################
 
