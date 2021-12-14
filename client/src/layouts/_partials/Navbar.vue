@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-800 fixed w-full mb-20">
+  <nav class="nav-top fixed w-full mb-20">
     <div class="px-2 sm:px-6 lg:px-20">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -19,7 +19,7 @@
         <!-- Logo -->
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <h1 class="text-white font-bold text-md">Aitra</h1>
+            <img src="/logo.png" class="hidden md:block md:w-32" alt="">
           </div>
         </div>
 
@@ -76,3 +76,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .nav-top {
+    background-color: #393e46;
+  }
+</style>
