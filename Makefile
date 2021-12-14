@@ -73,7 +73,6 @@ client:
 # Clear file-based logs
 logs-clear:
 	sudo rm docker/dev/nginx/logs/*.log
-	sudo rm docker/dev/supervisor/logs/*.log
 	sudo rm api/storage/logs/*.log
 
 
@@ -107,16 +106,6 @@ db-fresh:
 db-dump:
 	docker-compose exec postgres pg_dump -U app -d app > docker/postgres/dumps/dump.sql
 
-
-#-----------------------------------------------------------
-# Redis
-#-----------------------------------------------------------
-
-redis:
-	docker-compose exec redis redis-cli
-
-redis-flush:
-	docker-compose exec redis redis-cli FLUSHALL
 
 #-----------------------------------------------------------
 # Queue
