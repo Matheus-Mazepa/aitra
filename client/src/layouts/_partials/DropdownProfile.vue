@@ -8,15 +8,6 @@
     </button>
     <ul
       class="origin-left absolute right-0 mt-1 w-44 rounded-md shadow-lg py-1 bg-white focus:outline-none divide-y divide-gray-200 transform scale-0 group-hover:scale-100 transition duration-500 ease-in-out">
-      <li class="rounded-sm text-left w-full">
-        <router-link
-          to="/"
-          class="items-menu"
-          role="menuitem"
-          id="my-data-0">
-          Meus dados
-        </router-link>
-      </li>
 
       <li class="rounded-sm text-left w-full">
         <a href="#" class="items-menu router-link-exact-active router-link-active" @click="logout">Sair</a>

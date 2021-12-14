@@ -1,11 +1,11 @@
-import {requestLogin} from '@/service/Authentication';
+import { requestLogin } from '@/service/Authentication';
 import Cookies from "js-cookie";
 
 export default {
   async submitLogin({state}, credentials) {
     return requestLogin(state, credentials).then(response => {
       Cookies.set('user-name', response.data.data.name);
-      Cookies.set('authorization', response.data.data.name, 1/48);
+      Cookies.set('authorization', response.data.data.token, 1/48);
       return response.data;
     });
   },

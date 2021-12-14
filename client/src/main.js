@@ -9,16 +9,18 @@ import Notifications from 'vue-notification'
 
 Vue.prototype.$http = axios;
 
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost:8081'
+axios.defaults.withCredentials = true;
 
-axios.get('/sanctum/csrf-cookie');
+axios.get('http://localhost:8081/sanctum/csrf-cookie');
+
+axios.defaults.baseURL = 'http://localhost:8081/api';
+
 Vue.config.productionTip = false;
 
 window.router = router;
 
-Vue.use(VueRouter)
-Vue.use(Notifications)
+Vue.use(VueRouter);
+Vue.use(Notifications);
 
 new Vue({
   router,
