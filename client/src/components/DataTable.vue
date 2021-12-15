@@ -7,6 +7,7 @@
           <th v-for="(header, index) in headers" :key="`header-${index}`">
             {{ header.title }}
           </th>
+          <th v-if="hasActions">Ações</th>
           </thead>
           <tbody>
           <tr v-for="(item, index) in items" :key="`mapped-item-${index}`">
@@ -14,7 +15,7 @@
               {{ item[header.value] }}
             </td>
             <td v-if="hasActions" class="action-column">
-              <slot name="action" :item="item.item"/>
+              <slot name="action" :item="item"/>
             </td>
           </tr>
           </tbody>

@@ -1,8 +1,8 @@
 <template>
   <app-layout>
-    <router-link class="bg-green-500 rounded w-1/3 p-4 text-white font-bold text-center" :to="{name: 'projects.create'}"><edit-icon /> Adicionar projeto</router-link>
+    <router-link class="bg-green-500 rounded w-1/3 p-4 text-white font-bold text-center" :to="{name: 'projects.create'}"><edit-icon /> Adicionar atividade</router-link>
 
-    <data-table :headers="headers" :items="projects" :hasActions="true">
+    <data-table :headers="headers" :items="activities" :hasActions="true">
       <template #action="{ item }">
         <div class="flex">
           <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
@@ -43,18 +43,18 @@
     },
 
     mounted() {
-      this.fetchProjects();
+      this.fetchActivities();
     },
 
     computed: {
-      projects() {
-        return this.$store.getters["projects/projects"];
+      activities() {
+        return this.$store.getters["activities/activities"];
       }
     },
 
     methods: {
       ...mapActions({
-        fetchProjects: "projects/fetchProjects",
+        fetchActivities: "activities/fetchActivities",
       }),
     }
   }
