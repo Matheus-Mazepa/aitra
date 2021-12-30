@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ActivitiesController;
 use App\Http\Controllers\API\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ Auth::routes();
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('projects', [ProjectController::class, 'index']);
+    Route::get('projects/{project}/activities', [ActivitiesController::class, 'index']);
 });

@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <router-link class="bg-green-500 rounded w-1/3 p-4 text-white font-bold text-center" :to="{name: 'projects.create'}"><edit-icon /> Adicionar atividade</router-link>
+    <router-link class="bg-green-500 rounded w-1/3 p-4 text-white font-bold text-center" :to="{name: 'activities.create', params: { id: $route.params.id}}"><edit-icon /> Adicionar atividade</router-link>
 
     <data-table :headers="headers" :items="activities" :hasActions="true">
       <template #action="{ item }">
@@ -43,7 +43,7 @@
     },
 
     mounted() {
-      this.fetchActivities();
+      this.fetchActivities(this.$route.params.id);
     },
 
     computed: {

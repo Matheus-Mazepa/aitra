@@ -1,8 +1,8 @@
 import axios from 'axios';
 import Cookies from "js-cookie";
 
-export const fetch = () => {
-  return axios.get('/projects', {
+export const fetch = (projectId) => {
+  return axios.get(`/projects/${projectId}/activities`, {
     headers: {
       contentType: 'application-json',
       'Authorization': 'Bearer '  + Cookies.get('authorization') || ''

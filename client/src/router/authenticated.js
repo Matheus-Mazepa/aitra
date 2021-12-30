@@ -4,6 +4,7 @@ import ProjectsCreate from '@/views/Projects/Create.vue';
 import ProjectsEdit from '@/views/Projects/Edit.vue';
 
 import ActivitiesIndex from '@/views/Activities/Index.vue';
+import ActivitiesCreate from '@/views/Activities/Create.vue';
 
 import auth from "@/middlewares/auth";
 
@@ -44,6 +45,14 @@ const Authenticated = [
     path: '/projetos/:id/atividades',
     name: 'activities',
     component: ActivitiesIndex,
+    meta: {
+      middleware: auth,
+    },
+  },
+  {
+    path: '/projetos/:id/atividades/criar',
+    name: 'activities.create',
+    component: ActivitiesCreate,
     meta: {
       middleware: auth,
     },
