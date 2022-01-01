@@ -9,7 +9,7 @@
       :class="{'border border-red-500' : error }"
       v-bind="{...$props, ...$attrs}"
       @input="$emit('input', $event.target.value)"
-      class="shadow bg-gray-100 appearance-none border rounded w-full py-2 px-3 text-base text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
     <span class="text-sm text-red-500 text-muted" v-if="error">{{ error }}</span>
   </div>
 </template>

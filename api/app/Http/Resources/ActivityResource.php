@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProjectResource extends JsonResource
+class ActivityResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,10 @@ class ProjectResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'start_date' => format_date($this->start_date),
-            'finish_date' => format_date($this->finish_date),
-            'created_at' => format_date($this->created_at, 'd/m/Y H:i'),
+            'start_date' => format_date($this->start_date, 'd/m/Y'),
+            'finish_date' => format_date($this->finish_date, 'd/m/Y'),
+            'is_finished' => $this->is_finished,
+            'created_at' => format_date($this->created_at),
 
             'links' => [
             ],

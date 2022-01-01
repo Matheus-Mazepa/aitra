@@ -3,7 +3,7 @@ import Reset from '@/views/auth/ResetPassword.vue'
 
 const Unauthenticated = [{
         path: '/login',
-        name: 'Login',
+        name: 'login',
         component: Login,
     },
     {

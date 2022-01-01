@@ -37,7 +37,8 @@
           { title: '#', value: 'id' },
           { title: 'Nome', value: 'name' },
           { title: 'Data de inicio', value: 'start_date' },
-          { title: 'Data de fim', value: 'finish_date' }
+          { title: 'Data de fim', value: 'finish_date' },
+          { title: 'Finalizada', value: 'is_finished' }
         ],
       }
     },

@@ -43,7 +43,7 @@ if (!function_exists('format_date')) {
      * @param  string  $fromFormat  Origin format.
      * @return string
      */
-    function format_date($date, $format = null, $fromFormat = null)
+    function format_date($date, $format = 'd/m/Y', $fromFormat = null)
     {
         return \App\Support\DateHelper::formatDate($date, $format, $fromFormat);
     }

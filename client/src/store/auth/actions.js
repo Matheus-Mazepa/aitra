@@ -12,7 +12,7 @@ export default {
 
   logout() {
     Cookies.remove('authorization');
-    window.router.push({ name: 'Login' });
+    window.router.push({ name: 'login' });
   }
 
 }

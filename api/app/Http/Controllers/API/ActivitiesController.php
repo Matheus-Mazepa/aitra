@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\ProjectResource;
 use App\Models\Project;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ActivityResource;
 
 class ActivitiesController extends Controller
 {
@@ -12,6 +12,6 @@ class ActivitiesController extends Controller
     {
         $activities = $project->activities;
 
-        return response()->json(ProjectResource::collection($activities));
+        return response()->json(ActivityResource::collection($activities));
     }
 }
