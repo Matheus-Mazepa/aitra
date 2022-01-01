@@ -6,7 +6,7 @@
           <v-input
             label="Nome"
             id="name"
-            required
+            :error="getError('project.name')"
             v-model="project.name"
             type="text"
             title="Digite o nome do projeto"/>
@@ -16,7 +16,10 @@
             Data de inicio
             <span class="text-sm text-red-500 text-muted ml-1">*</span>
           </label>
-          <date-picker v-model="project.startDate" format="DD/MM/YYYY"></date-picker>
+          <div class="w-full">
+            <date-picker v-model="project.startDate" format="DD/MM/YYYY"></date-picker>
+          </div>
+          <span class="text-sm text-red-500 text-muted" v-if="getError('project.start_date')">{{ getError('project.start_date') }}</span>
         </div>
 
         <div class="form-group md:ml-5 col-span-2">
@@ -24,7 +27,10 @@
             Data de término
             <span class="text-sm text-red-500 text-muted ml-1">*</span>
           </label>
-          <date-picker v-model="project.finishDate" format="DD/MM/YYYY"></date-picker>
+          <div class="w-full">
+            <date-picker v-model="project.finishDate" format="DD/MM/YYYY"></date-picker>
+          </div>
+          <span class="text-sm text-red-500 text-muted" v-if="getError('project.finish_date')">{{ getError('project.finish_date') }}</span>
         </div>
       </div>
 
@@ -64,6 +70,10 @@
     computed: {
       projectCreated() {
         return this.$store.getters["projects/project"];
+      },
+
+      errors() {
+        return this.$store.getters["projects/errors"];
       }
     },
 
@@ -71,6 +81,10 @@
       createDateFromLocalFormart(date) {
         const splittedDateSplited = date.split('/');
         return new Date(`${splittedDateSplited[1]}/${splittedDateSplited[0]}/${splittedDateSplited[2]}`);
+      },
+
+      getError(error) {
+        return this.errors[error] ? this.errors[error][0] : undefined;
       }
     },
 

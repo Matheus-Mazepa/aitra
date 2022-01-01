@@ -27,6 +27,8 @@ export default {
     create(payload, projectId).then(response => {
       if (response.status === 201)
         window.router.push({ name: 'activities', params: { projectId: projectId } });
+    }).catch(error => {
+      state.errors = error.response.data.errors;
     });
   },
 
@@ -36,6 +38,8 @@ export default {
       if (response.status === 200)
         window.router.push({ name: 'activities', params: { projectId: projectId } });
 
+    }).catch(error => {
+      state.errors = error.response.data.errors;
     });
   }
 };

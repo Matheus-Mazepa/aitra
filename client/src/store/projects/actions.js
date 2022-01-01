@@ -18,7 +18,8 @@ export default {
     create(payload).then(response => {
       if (response.status === 201)
         window.router.push({ name: 'projects' });
-
+    }).catch(error => {
+      state.errors = error.response.data.errors;
     });
   },
 
@@ -28,6 +29,8 @@ export default {
       if (response.status === 200)
         window.router.push({ name: 'projects' });
 
+    }).catch(error => {
+      state.errors = error.response.data.errors;
     });
   }
 };
