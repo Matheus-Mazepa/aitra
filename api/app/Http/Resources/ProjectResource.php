@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Actions\CalculateCompletedPercentProject;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProjectResource extends JsonResource
@@ -20,6 +21,7 @@ class ProjectResource extends JsonResource
             'start_date' => format_date($this->start_date),
             'finish_date' => format_date($this->finish_date),
             'created_at' => format_date($this->created_at, 'd/m/Y H:i'),
+            'completed_percent' => CalculateCompletedPercentProject::new()->execute($this->id),
 
             'links' => [
             ],

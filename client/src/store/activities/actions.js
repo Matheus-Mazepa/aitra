@@ -4,8 +4,8 @@ export default {
   // eslint-disable-next-line no-unused-vars
   setAsFinished({state}, {projectId, id}) {
     setAsFinished(projectId, id).then(response => {
-      if (response === 200)
-        window.router.push({ name: 'activities', params: { projectId: projectId } });
+      if (response.status === 200)
+        window.location.reload();
     });
   },
 
