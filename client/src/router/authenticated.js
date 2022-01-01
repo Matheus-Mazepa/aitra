@@ -5,6 +5,7 @@ import ProjectsEdit from '@/views/Projects/Edit.vue';
 
 import ActivitiesIndex from '@/views/Activities/Index.vue';
 import ActivitiesCreate from '@/views/Activities/Create.vue';
+import ActivitiesEdit from '@/views/Activities/Edit.vue';
 
 import auth from "@/middlewares/auth";
 
@@ -42,7 +43,7 @@ const Authenticated = [
     },
   },
   {
-    path: '/projetos/:id/atividades',
+    path: '/projetos/:project_id/atividades',
     name: 'activities',
     component: ActivitiesIndex,
     meta: {
@@ -50,9 +51,17 @@ const Authenticated = [
     },
   },
   {
-    path: '/projetos/:id/atividades/criar',
+    path: '/projetos/:project_id/atividades/criar',
     name: 'activities.create',
     component: ActivitiesCreate,
+    meta: {
+      middleware: auth,
+    },
+  },
+  {
+    path: '/projetos/:project_id/atividades/:id/editar',
+    name: 'activities.edit',
+    component: ActivitiesEdit,
     meta: {
       middleware: auth,
     },

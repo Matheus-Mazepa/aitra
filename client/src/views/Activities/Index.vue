@@ -7,11 +7,7 @@
         <div class="flex">
           <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
                title="Editar" >
-            <router-link :to="{name: 'projects.edit', params: { id: item.id}}"><edit-icon /></router-link>
-          </div>
-          <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
-               title="Ver atividades do projeto" >
-            <router-link :to="{name: 'activities', params: { id: item.id}}"><calendar-clock-icon /></router-link>
+            <router-link :to="{name: 'activities.edit', params: {project_id: $route.params.project_id, id: item.id}}"><edit-icon /></router-link>
           </div>
         </div>
       </template>
@@ -24,12 +20,11 @@
   import DataTable from "../../components/DataTable";
   import {mapActions} from "vuex";
   import EditIcon from 'vue-material-design-icons/Pencil';
-  import CalendarClockIcon from 'vue-material-design-icons/CalendarClock';
 
   export default {
     name: 'Index',
 
-    components: {DataTable, AppLayout, EditIcon, CalendarClockIcon},
+    components: {DataTable, AppLayout, EditIcon},
 
     data() {
       return {
@@ -44,7 +39,7 @@
     },
 
     mounted() {
-      this.fetchActivities(this.$route.params.id);
+      this.fetchActivities(this.$route.params.project_id);
     },
 
     computed: {

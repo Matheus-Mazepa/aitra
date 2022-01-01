@@ -7,7 +7,6 @@ export default {
     });
   },
 
-  // eslint-disable-next-line no-unused-vars
   fetchProject({state}, id) {
     fetchProject(id).then(response => {
       state.project = response.data;
@@ -25,7 +24,6 @@ export default {
 
   // eslint-disable-next-line no-unused-vars
   editProject({state}, {payload, id}) {
-    console.log(id);
     edit(payload, id).then(response => {
       if (response.status === 200)
         window.router.push({ name: 'projects' });

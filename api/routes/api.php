@@ -25,4 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('projects/{id}', [ProjectController::class, 'update']);
 
     Route::get('projects/{project}/activities', [ActivitiesController::class, 'index']);
+    Route::get('projects/{project}/activities/{activity}', [ActivitiesController::class, 'show']);
+    Route::post('projects/{project}/activities', [ActivitiesController::class, 'store']);
+    Route::put('projects/{project}/activities/{id}', [ActivitiesController::class, 'update']);
 });

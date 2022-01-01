@@ -7,11 +7,11 @@
         <div class="flex">
           <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
                title="Editar" >
-            <router-link :to="{name: 'projects.edit', params: { id: item.id, project: item}}"><edit-icon /></router-link>
+            <router-link :to="{name: 'projects.edit', params: { id: item.id}}"><edit-icon /></router-link>
           </div>
           <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
                title="Ver atividades do projeto" >
-            <router-link :to="{name: 'activities', params: { id: item.id}}"><calendar-clock-icon /></router-link>
+            <router-link :to="{name: 'activities', params: { project_id: item.id}}"><calendar-clock-icon /></router-link>
           </div>
         </div>
       </template>

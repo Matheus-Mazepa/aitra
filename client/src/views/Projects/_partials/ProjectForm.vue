@@ -16,7 +16,7 @@
             Data de inicio
             <span class="text-sm text-red-500 text-muted ml-1">*</span>
           </label>
-          <date-picker v-model="project.startDate" :default-date="project.startDate" format="DD/MM/YYYY"></date-picker>
+          <date-picker v-model="project.startDate" format="DD/MM/YYYY"></date-picker>
         </div>
 
         <div class="form-group md:ml-5 col-span-2">

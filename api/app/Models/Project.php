@@ -18,7 +18,7 @@ class Project extends Model
 
     public function activities(): HasMany
     {
-        return $this->hasMany(Activities::class, 'project_id', 'id');
+        return $this->hasMany(Activity::class, 'project_id', 'id');
     }
 
     public function getProgressAttributte()

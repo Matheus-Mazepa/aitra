@@ -13,6 +13,54 @@ export const fetch = (projectId) => {
     });
 }
 
+export const fetchActivity = (projectId, id) => {
+  return axios.get(`/projects/${projectId}/activities/${id}`, {
+    headers: {
+      contentType: 'application-json',
+      'Authorization': 'Bearer '  + Cookies.get('authorization') || ''
+    }
+  })
+    .then(response => {
+      return response;
+    });
+}
+
+export const create = (payload, projectId) => {
+  return axios.post(`/projects/${projectId}/activities`, {
+    activity: {
+      name: payload.name,
+      start_date: payload.startDate,
+      finish_date: payload.finishDate
+    }
+  },{
+    headers: {
+      contentType: 'application-json',
+      'Authorization': 'Bearer '  + Cookies.get('authorization') || ''
+    }
+  })
+    .then(response => {
+      return response;
+    });
+}
+
+export const edit = (payload, projectId, id) => {
+  return axios.put(`/projects/${projectId}/activities/${id}`, {
+    activity: {
+      name: payload.name,
+      start_date: payload.startDate,
+      finish_date: payload.finishDate
+    }
+  },{
+    headers: {
+      contentType: 'application-json',
+      'Authorization': 'Bearer '  + Cookies.get('authorization') || ''
+    }
+  })
+    .then(response => {
+      return response;
+    });
+}
+
 export default {
   fetch
 };

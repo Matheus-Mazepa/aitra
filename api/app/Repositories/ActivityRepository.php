@@ -2,15 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Models\Activities;
+use App\Models\Activity;
 use App\Traits\Newable;
 
-class AcitivitiesRepository extends Repository
+class ActivityRepository extends Repository
 {
     use Newable;
 
     protected function getClass()
     {
-        return Activities::class;
+        return Activity::class;
     }
 }

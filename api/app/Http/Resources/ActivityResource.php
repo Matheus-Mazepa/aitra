@@ -19,7 +19,7 @@ class ActivityResource extends JsonResource
             'name' => $this->name,
             'start_date' => format_date($this->start_date, 'd/m/Y'),
             'finish_date' => format_date($this->finish_date, 'd/m/Y'),
-            'is_finished' => $this->is_finished,
+            'is_finished' => $this->is_finished ? 'Sim' : 'Não',
             'created_at' => format_date($this->created_at),
 
             'links' => [
