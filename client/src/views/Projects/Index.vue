@@ -38,7 +38,8 @@
           { title: 'Nome', value: 'name' },
           { title: 'Data de inicio', value: 'start_date' },
           { title: 'Data de fim', value: 'finish_date' },
-          { title: '% completado', value: 'completed_percent' }
+          { title: '% completado', value: 'completed_percent' },
+          { title: 'Atrasado', value: 'is_late' }
         ],
       }
     },
