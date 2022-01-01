@@ -13,6 +13,22 @@ export const fetch = (projectId) => {
     });
 }
 
+export const setAsFinished = (projectId, id) => {
+  return axios.patch(`/projects/${projectId}/activities/${id}`, {
+    'activity': {
+      is_finished: true
+    }
+  },{
+    headers: {
+      contentType: 'application-json',
+      'Authorization': 'Bearer '  + Cookies.get('authorization') || ''
+    }
+  })
+    .then(response => {
+      return response;
+    });
+}
+
 export const fetchActivity = (projectId, id) => {
   return axios.get(`/projects/${projectId}/activities/${id}`, {
     headers: {

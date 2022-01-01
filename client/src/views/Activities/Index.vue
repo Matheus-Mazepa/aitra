@@ -9,6 +9,11 @@
                title="Editar" >
             <router-link :to="{name: 'activities.edit', params: {project_id: $route.params.project_id, id: item.id}}"><edit-icon /></router-link>
           </div>
+          <div class="hover:text-green-600 lsm:p-1 lsm:mx-0.5 ease-linear transition-all duration-150 cursor-pointer"
+               v-if="item.is_finished === 'Não'"
+               title="Definir como finalizada" @click="setAsFinished({projectId: $route.params.project_id, id: item.id})">
+            <check-icon />
+          </div>
         </div>
       </template>
     </data-table>
@@ -20,11 +25,12 @@
   import DataTable from "../../components/DataTable";
   import {mapActions} from "vuex";
   import EditIcon from 'vue-material-design-icons/Pencil';
+  import CheckIcon from 'vue-material-design-icons/Check';
 
   export default {
     name: 'Index',
 
-    components: {DataTable, AppLayout, EditIcon},
+    components: {DataTable, AppLayout, EditIcon, CheckIcon},
 
     data() {
       return {
@@ -51,7 +57,8 @@
     methods: {
       ...mapActions({
         fetchActivities: "activities/fetchActivities",
-      }),
+        setAsFinished: "activities/setAsFinished",
+      })
     }
   }
 </script>

@@ -23,11 +23,17 @@ class ActivityRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'activity' => 'required',
-            'activity.name' => 'required|string|max:255',
-            'activity.start_date' => 'required',
-            'activity.finish_date' => 'required',
-        ];
+        if ($this->method() === 'PATCH') {
+            $rules['activity.is_finished'] = "required|boolean";
+        } else {
+            $rules = [
+                'activity' => 'required',
+                'activity.name' => 'required|string|max:255',
+                'activity.start_date' => 'required',
+                'activity.finish_date' => 'required',
+            ];
+        }
+
+        return $rules;
     }
 }

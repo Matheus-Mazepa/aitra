@@ -1,6 +1,14 @@
-import { fetch, create, edit, fetchActivity } from '@/service/ActivityService';
+import { fetch, create, edit, fetchActivity, setAsFinished } from '@/service/ActivityService';
 
 export default {
+  // eslint-disable-next-line no-unused-vars
+  setAsFinished({state}, {projectId, id}) {
+    setAsFinished(projectId, id).then(response => {
+      if (response === 200)
+        window.router.push({ name: 'activities', params: { projectId: projectId } });
+    });
+  },
+
   fetchActivities({state}, projectId) {
     fetch(projectId).then(response => {
       state.activities = response.data;
@@ -19,7 +27,6 @@ export default {
     create(payload, projectId).then(response => {
       if (response.status === 201)
         window.router.push({ name: 'activities', params: { projectId: projectId } });
-
     });
   },
 

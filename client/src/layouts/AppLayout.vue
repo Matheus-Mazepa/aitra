@@ -2,7 +2,7 @@
   <div>
     <navbar/>
 
-    <main class="flex flex-col md:p-36 p-4">
+    <main class="flex flex-col md:p-36 pt-20 p-4">
       <slot/>
     </main>
     <footer-layout/>
